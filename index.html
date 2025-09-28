@@ -6,149 +6,132 @@
 <title>Pixel Study Timer & Rewards 💎</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
 :root {
-    --pixel-font: 'Press Start 2P', cursive;
-    --bg-color: #87ceeb;
-    --ground-color: #795548;
-    --text-color: #333;
+  --pixel-font:'Press Start 2P',cursive;
+  --bg-color:#87ceeb;
+  --ground-color:#795548;
+  --text-color:#333;
 }
-
 body {
-    font-family: var(--pixel-font);
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    margin: 0;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    overflow-x: hidden;
-    background-image: linear-gradient(to top, var(--ground-color) 150px, var(--bg-color) 150px);
+  font-family:var(--pixel-font);
+  background-color:var(--bg-color);
+  color:var(--text-color);
+  margin:0;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  min-height:100vh;
+  overflow-x:hidden;
+  background-image:linear-gradient(to top,var(--ground-color) 150px,var(--bg-color) 150px);
 }
-
 #main-container {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    max-width: 1200px;
-    gap: 20px;
+  display:flex;
+  flex-wrap:wrap;
+  width:100%;
+  max-width:1200px;
+  gap:20px;
 }
-
 #youtube-player {
-    flex: 2;
-    min-width: 300px;
-    border: 4px solid #000;
-    box-shadow: 8px 8px 0px #000;
-    padding: 10px;
-    background-color: #fff;
+  flex:2;
+  min-width:300px;
+  border:4px solid #000;
+  box-shadow:8px 8px 0px #000;
+  padding:10px;
+  background-color:#fff;
 }
-
 #youtube-frame {
-    display: block;
-    width: 100%;
-    aspect-ratio: 16/9;
+  display:block;
+  width:100%;
+  aspect-ratio:16/9;
 }
-
-#search-bar {
-    margin-top: 10px;
-    display: flex;
-    gap: 10px;
+#video-selector {
+  margin-top:10px;
+  display:flex;
+  gap:10px;
 }
-
-#search-bar input {
-    flex: 1;
-    padding: 5px;
-    border: 2px solid #000;
+#video-selector input {
+  flex:1;
+  padding:5px;
+  border:2px solid #000;
 }
-
-#search-bar button {
-    padding: 5px 10px;
-    cursor: pointer;
-    background-color: #2ecc71;
-    color: #fff;
-    border: none;
-    box-shadow: 2px 2px 0 #000;
+#video-selector button {
+  padding:5px 10px;
+  cursor:pointer;
+  background-color:#2ecc71;
+  color:#fff;
+  border:none;
+  box-shadow:2px 2px 0 #000;
 }
-
 #study-area {
-    flex: 1;
-    min-width: 280px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  flex:1;
+  min-width:280px;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
 }
-
-#timer-box, #reward-box {
-    border: 4px solid #000;
-    box-shadow: 8px 8px 0px #000;
-    background-color: #f0f0f0;
-    padding: 20px;
-    text-align: center;
+#timer-box,#reward-box {
+  border:4px solid #000;
+  box-shadow:8px 8px 0px #000;
+  background-color:#f0f0f0;
+  padding:20px;
+  text-align:center;
 }
-
 #timer {
-    font-size: 1.8em;
-    margin: 15px 0;
-    color: #e74c3c;
+  font-size:1.8em;
+  margin:15px 0;
+  color:#e74c3c;
 }
-
 button {
-    font-family: var(--pixel-font);
-    background-color: #2ecc71;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    margin: 5px;
-    cursor: pointer;
-    border-radius: 0;
-    border: 3px solid #000;
-    box-shadow: 4px 4px 0px #000;
-    transition: all 0.1s;
+  font-family:var(--pixel-font);
+  background-color:#2ecc71;
+  color:#fff;
+  border:none;
+  padding:10px 15px;
+  margin:5px;
+  cursor:pointer;
+  border-radius:0;
+  border:3px solid #000;
+  box-shadow:4px 4px 0 #000;
+  transition:all 0.1s;
 }
-
 button:hover:not(:disabled) {
-    box-shadow: 2px 2px 0 #000;
-    transform: translate(2px,2px);
-    background-color: #27ae60;
+  box-shadow:2px 2px 0 #000;
+  transform:translate(2px,2px);
+  background-color:#27ae60;
 }
-
 button:disabled {
-    background-color: #bdc3c7;
-    cursor: not-allowed;
-    box-shadow: 4px 4px 0 #555;
+  background-color:#bdc3c7;
+  cursor:not-allowed;
+  box-shadow:4px 4px 0 #555;
 }
-
 #pixel-scene {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 150px;
-    z-index: -1;
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:150px;
+  z-index:-1;
 }
-
 #pixel-scene::before {
-    content:'';
-    position:absolute;
-    bottom:0;
-    left:10%;
-    width:0;
-    height:0;
-    border-left:100px solid transparent;
-    border-right:100px solid transparent;
-    border-bottom:120px solid #7f8c8d;
-    box-shadow:-8px -8px 0 0 #95a5a6, 8px -8px 0 0 #6c7a7b;
+  content:'';
+  position:absolute;
+  bottom:0;
+  left:10%;
+  width:0;
+  height:0;
+  border-left:100px solid transparent;
+  border-right:100px solid transparent;
+  border-bottom:120px solid #7f8c8d;
+  box-shadow:-8px -8px 0 0 #95a5a6,8px -8px 0 0 #6c7a7b;
 }
-
 .cloud {
-    position:absolute;
-    background:#fff;
-    border:2px solid #000;
-    box-shadow:4px 4px 0 #000;
-    border-radius:50%;
-    z-index:-2;
+  position:absolute;
+  background:#fff;
+  border:2px solid #000;
+  box-shadow:4px 4px 0 #000;
+  border-radius:50%;
+  z-index:-2;
 }
 .cloud:nth-child(1){width:60px;height:30px;top:50px;left:60%;}
 .cloud:nth-child(2){width:80px;height:40px;top:80px;left:75%;}
@@ -156,18 +139,6 @@ button:disabled {
 .cloud::before,.cloud::after{content:'';position:absolute;background:inherit;border:inherit;border-radius:inherit;box-shadow:inherit;}
 .cloud::before{width:100%;height:100%;top:-10px;left:15px;transform:scale(0.7);}
 .cloud::after{width:100%;height:100%;top:5px;left:-10px;transform:scale(0.9);}
-
-#search-results div{
-    cursor:pointer;
-    margin:5px 0;
-    padding:5px;
-    border:1px solid #000;
-    display:flex;
-    align-items:center;
-    gap:10px;
-}
-#search-results img{width:80px;height:45px;}
-
 .flash{animation:flashAnim 0.3s;}
 @keyframes flashAnim{0%{transform:scale(1);}50%{transform:scale(1.2);}100%{transform:scale(1);}}
 </style>
@@ -178,11 +149,10 @@ button:disabled {
 <div id="youtube-player">
 <h2>🎶 Nhạc Nền Học Tập</h2>
 <div id="youtube-frame"></div>
-<div id="search-bar">
-<input type="text" id="search-input" placeholder="Tìm nhạc trên YouTube..."/>
-<button id="search-button">Tìm</button>
+<div id="video-selector">
+<input type="text" id="video-input" placeholder="Nhập video ID hoặc playlist ID..."/>
+<button id="load-video">Load Nhạc</button>
 </div>
-<div id="search-results"></div>
 </div>
 
 <div id="study-area">
@@ -196,7 +166,7 @@ button:disabled {
 <div id="reward-box">
 <h2>Phần Thưởng 💎</h2>
 <p>Kim Cương: <span id="diamond-count">0</span></p>
-<p class="pixel-info" style="font-size:0.7em;">(Cứ 10 giây học nhận 1 Kim Cương!)</p>
+<p style="font-size:0.7em;">(Cứ 10 giây học nhận 1 Kim Cương!)</p>
 </div>
 </div>
 </div>
@@ -208,13 +178,12 @@ button:disabled {
 </div>
 
 <script>
-let isRunning=false, intervalId, seconds=0, diamondCount=0, player;
+let isRunning=false,intervalId,seconds=0,diamondCount=0,player;
 const timerDisplay=document.getElementById('timer');
 const startButton=document.getElementById('start-button');
 const stopButton=document.getElementById('stop-button');
 const diamondCountDisplay=document.getElementById('diamond-count');
 const rewardBox=document.getElementById('reward-box');
-
 function updateTimer(){
 seconds++;
 const h=String(Math.floor(seconds/3600)).padStart(2,'0');
@@ -228,7 +197,7 @@ function stopTimer(){if(!isRunning)return;isRunning=false;clearInterval(interval
 startButton.addEventListener('click',startTimer);
 stopButton.addEventListener('click',stopTimer);
 
-// YouTube API
+// YouTube IFrame
 function loadYouTubeAPI(){
 const tag=document.createElement('script');
 tag.src="https://www.youtube.com/iframe_api";
@@ -239,30 +208,19 @@ player=new YT.Player('youtube-frame',{height:'315',width:'100%',videoId:'5qap5aO
 };
 loadYouTubeAPI();
 
-// Search YouTube
-const searchInput=document.getElementById('search-input');
-const searchButton=document.getElementById('search-button');
-const resultsDiv=document.getElementById('search-results');
-const API_KEY='YOUR_API_KEY'; // Thay bằng key thật
-
-searchButton.addEventListener('click',async()=>{
-const query=searchInput.value;
-if(!query)return;
-const res=await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=5&q=${encodeURIComponent(query)}&key=${API_KEY}`);
-const data=await res.json();
-resultsDiv.innerHTML='';
-data.items.forEach(item=>{
-const videoId=item.id.videoId;
-const div=document.createElement('div');
-div.innerHTML=`<img src="${item.snippet.thumbnails.default.url}"><p>${item.snippet.title}</p>`;
-div.addEventListener('click',()=>{
-player.loadVideoById(videoId);
+// Load video/playlist bằng ID
+document.getElementById('load-video').addEventListener('click',()=>{
+const id=document.getElementById('video-input').value.trim();
+if(!id)return;
+if(id.includes('PL')){ // playlist
+  player.loadPlaylist({list:id,listType:'playlist'});
+}else{ // video
+  player.loadVideoById(id);
+}
 if(isRunning)player.playVideo();
-});
-resultsDiv.appendChild(div);
-});
 });
 </script>
 </body>
 </html>
+
 
